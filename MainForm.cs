@@ -70,7 +70,7 @@ namespace KURSACH
                 cmd.ExecuteNonQuery();
                 con.Close();
                 LoadData();
-                MessageBox.Show("Договор успешно удалён!");
+                MessageBox.Show("Договор удалён успешно!");
             }
         }
 

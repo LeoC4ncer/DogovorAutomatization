@@ -39,8 +39,6 @@ namespace KURSACH
             this.labelSearch = new System.Windows.Forms.Label();
             this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.UpdateInfoButton = new System.Windows.Forms.Button();
-            this.DeleteContractButton = new System.Windows.Forms.Button();
             this.ReloadTableButton = new System.Windows.Forms.Button();
             this.InsertContractButton = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -149,8 +147,6 @@ namespace KURSACH
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.panel4.Controls.Add(this.UpdateInfoButton);
-            this.panel4.Controls.Add(this.DeleteContractButton);
             this.panel4.Controls.Add(this.ReloadTableButton);
             this.panel4.Controls.Add(this.InsertContractButton);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
@@ -158,28 +154,6 @@ namespace KURSACH
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1178, 40);
             this.panel4.TabIndex = 4;
-            // 
-            // UpdateInfoButton
-            // 
-            this.UpdateInfoButton.Location = new System.Drawing.Point(308, 3);
-            this.UpdateInfoButton.Name = "UpdateInfoButton";
-            this.UpdateInfoButton.Size = new System.Drawing.Size(93, 34);
-            this.UpdateInfoButton.TabIndex = 4;
-            this.UpdateInfoButton.TabStop = false;
-            this.UpdateInfoButton.Text = "Редактировать";
-            this.UpdateInfoButton.UseVisualStyleBackColor = true;
-            this.UpdateInfoButton.Click += new System.EventHandler(this.UpdateInfoButton_Click);
-            // 
-            // DeleteContractButton
-            // 
-            this.DeleteContractButton.Location = new System.Drawing.Point(407, 3);
-            this.DeleteContractButton.Name = "DeleteContractButton";
-            this.DeleteContractButton.Size = new System.Drawing.Size(83, 34);
-            this.DeleteContractButton.TabIndex = 5;
-            this.DeleteContractButton.TabStop = false;
-            this.DeleteContractButton.Text = "Удалить";
-            this.DeleteContractButton.UseVisualStyleBackColor = true;
-            this.DeleteContractButton.Click += new System.EventHandler(this.DeleteContractButton_Click);
             // 
             // ReloadTableButton
             // 
@@ -276,10 +250,8 @@ namespace KURSACH
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Button ReloadTableButton;
         public System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button DeleteContractButton;
         private System.Windows.Forms.TextBox IdTextBoxMain;
         private System.Windows.Forms.Label labelSearch;
-        private System.Windows.Forms.Button UpdateInfoButton;
         public System.Windows.Forms.DateTimePicker dateTimePicker1;
         public System.Windows.Forms.DateTimePicker dateTimePicker3;
         public System.Windows.Forms.DateTimePicker dateTimePicker2;

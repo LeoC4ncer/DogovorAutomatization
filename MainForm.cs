@@ -60,7 +60,7 @@ namespace KURSACH
 
         private void DeleteContractButton_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Удалить этот договор??", "Удаление", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+            if (MessageBox.Show("ДЕМО: Удалить этот договор??", "Удаление", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
                             == DialogResult.Yes)
             {
                 con.Open();

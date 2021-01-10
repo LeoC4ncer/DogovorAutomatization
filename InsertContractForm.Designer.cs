@@ -32,8 +32,6 @@ namespace KURSACH
             this.button1 = new System.Windows.Forms.Button();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.textBox8 = new System.Windows.Forms.TextBox();
-            this.dateTimePicker6 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker5 = new System.Windows.Forms.DateTimePicker();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -48,6 +46,8 @@ namespace KURSACH
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.date2TextBox = new System.Windows.Forms.TextBox();
             this.date1TextBox = new System.Windows.Forms.TextBox();
+            this.dateTimePicker5 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker6 = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // button1
@@ -77,28 +77,6 @@ namespace KURSACH
             this.textBox8.Size = new System.Drawing.Size(267, 20);
             this.textBox8.TabIndex = 8;
             this.textBox8.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox8_KeyPress);
-            // 
-            // dateTimePicker6
-            // 
-            this.dateTimePicker6.CustomFormat = "";
-            this.dateTimePicker6.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker6.Location = new System.Drawing.Point(105, 179);
-            this.dateTimePicker6.Name = "dateTimePicker6";
-            this.dateTimePicker6.Size = new System.Drawing.Size(267, 20);
-            this.dateTimePicker6.TabIndex = 6;
-            this.dateTimePicker6.ValueChanged += new System.EventHandler(this.dateTimePicker6_ValueChanged);
-            // 
-            // dateTimePicker5
-            // 
-            this.dateTimePicker5.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.dateTimePicker5.CustomFormat = "";
-            this.dateTimePicker5.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker5.Location = new System.Drawing.Point(105, 144);
-            this.dateTimePicker5.Name = "dateTimePicker5";
-            this.dateTimePicker5.Size = new System.Drawing.Size(267, 20);
-            this.dateTimePicker5.TabIndex = 5;
-            this.dateTimePicker5.Value = new System.DateTime(2020, 12, 24, 0, 0, 0, 0);
-            this.dateTimePicker5.ValueChanged += new System.EventHandler(this.dateTimePicker5_ValueChanged);
             // 
             // textBox4
             // 
@@ -240,12 +218,34 @@ namespace KURSACH
             this.date1TextBox.TabIndex = 57;
             this.date1TextBox.Visible = false;
             // 
+            // dateTimePicker5
+            // 
+            this.dateTimePicker5.Cursor = System.Windows.Forms.Cursors.Default;
+            this.dateTimePicker5.CustomFormat = "";
+            this.dateTimePicker5.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker5.Location = new System.Drawing.Point(105, 144);
+            this.dateTimePicker5.Name = "dateTimePicker5";
+            this.dateTimePicker5.Size = new System.Drawing.Size(267, 20);
+            this.dateTimePicker5.TabIndex = 59;
+            this.dateTimePicker5.Value = new System.DateTime(2021, 1, 9, 0, 0, 0, 0);
+            // 
+            // dateTimePicker6
+            // 
+            this.dateTimePicker6.CustomFormat = "";
+            this.dateTimePicker6.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker6.Location = new System.Drawing.Point(105, 179);
+            this.dateTimePicker6.Name = "dateTimePicker6";
+            this.dateTimePicker6.Size = new System.Drawing.Size(267, 20);
+            this.dateTimePicker6.TabIndex = 60;
+            // 
             // InsertContractForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Tan;
             this.ClientSize = new System.Drawing.Size(384, 361);
+            this.Controls.Add(this.dateTimePicker6);
+            this.Controls.Add(this.dateTimePicker5);
             this.Controls.Add(this.date2TextBox);
             this.Controls.Add(this.date1TextBox);
             this.Controls.Add(this.comboBox3);
@@ -253,8 +253,6 @@ namespace KURSACH
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox7);
             this.Controls.Add(this.textBox8);
-            this.Controls.Add(this.dateTimePicker6);
-            this.Controls.Add(this.dateTimePicker5);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label5);
@@ -270,6 +268,7 @@ namespace KURSACH
             this.Name = "InsertContractForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Создание договора";
+            this.Load += new System.EventHandler(this.InsertContractForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -277,12 +276,6 @@ namespace KURSACH
 
         #endregion
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.DateTimePicker dateTimePicker6;
-        private System.Windows.Forms.DateTimePicker dateTimePicker5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
@@ -291,9 +284,15 @@ namespace KURSACH
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.TextBox date2TextBox;
-        private System.Windows.Forms.TextBox date1TextBox;
+        public System.Windows.Forms.TextBox textBox7;
+        public System.Windows.Forms.TextBox textBox8;
+        public System.Windows.Forms.TextBox textBox4;
+        public System.Windows.Forms.TextBox textBox1;
+        public System.Windows.Forms.ComboBox comboBox2;
+        public System.Windows.Forms.ComboBox comboBox3;
+        public System.Windows.Forms.TextBox date2TextBox;
+        public System.Windows.Forms.TextBox date1TextBox;
+        public System.Windows.Forms.DateTimePicker dateTimePicker5;
+        public System.Windows.Forms.DateTimePicker dateTimePicker6;
     }
 }

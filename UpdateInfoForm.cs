@@ -1,27 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
-using System.Data.SqlServerCe;
 
 namespace KURSACH
 {
     public partial class UpdateInfoForm : Form
     {
-        private SqlCeCommand cmd;
-        private static string c = (@"Data Source=..\Debug\ContractsDataBase.sdf");
-        private SqlCeConnection con = new SqlCeConnection(c);
+        OperationWithContracts owc = new OperationWithContracts();
 
         public UpdateInfoForm()
         {
+            OperationWithContracts.uif = this;
             InitializeComponent();
         }
+
         private void button1_Click(object sender, EventArgs e)
         {
             if (String.IsNullOrWhiteSpace(textBox1.Text) | String.IsNullOrWhiteSpace(comboBox2.Text) | String.IsNullOrWhiteSpace(comboBox3.Text) |
@@ -30,18 +21,17 @@ namespace KURSACH
             {
                 MessageBox.Show("Заполните все поля");
             }
+            else if (dateTimePicker5.Value > dateTimePicker6.Value)
+            {
+                MessageBox.Show("Дата начала действия договора не может быть позже даты конца действия договора!");
+            }
+            else if (Convert.ToInt32(textBox8.Text) == 0)
+            {
+                MessageBox.Show("Сумма не может равна нулю!");
+            }
             else
             {
-                con.Open();
-                SqlCeCommand cmd = con.CreateCommand();
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "UPDATE Contracts SET Номер ='" + textBox1.Text + "',Состояние ='" + comboBox2.Text + "',Вид ='" + comboBox3.Text + "'," +
-                    "Контрагент ='" + textBox4.Text + "',Начало =" + "'" + date1TextBox.Text + "',Окончание ='" + date2TextBox.Text + "'," +
-                    "Предмет ='" + textBox7.Text + "',Сумма ='" + textBox8.Text + "' WHERE Id = '" + IDtextBox.Text + "' ";
-                cmd.ExecuteNonQuery();
-                con.Close();
-                this.Close();
-                MessageBox.Show("Договор успешно изменён!");
+                owc.UpdateContract();
             }
         }
 
@@ -49,7 +39,7 @@ namespace KURSACH
         {
             char ch = e.KeyChar;
 
-            if (!Char.IsDigit(ch) && ch != 8 && ch != 232 && ch != '.' && ch != ',')
+            if (!Char.IsDigit(ch) && ch != 8 && ch != 232 && ch != '.')
             {
                 e.Handled = true;
             }
@@ -65,6 +55,11 @@ namespace KURSACH
         {
             DateTime d2 = dateTimePicker6.Value.Date;
             date2TextBox.Text = d2.ToString("MM.dd.yyyy");
+        }
+
+        private void UpdateInfoForm_Load(object sender, EventArgs e)
+        {
+            owc.UpdateInfoFormOpen();
         }
     }
 }

@@ -100,6 +100,7 @@ namespace KURSACH
             // 
             // textBox8
             // 
+            this.textBox8.AllowDrop = true;
             this.textBox8.Location = new System.Drawing.Point(105, 245);
             this.textBox8.MaxLength = 14;
             this.textBox8.Name = "textBox8";
@@ -280,6 +281,7 @@ namespace KURSACH
             this.Name = "UpdateInfoForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Редактирование договора";
+            this.Load += new System.EventHandler(this.UpdateInfoForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -304,7 +306,7 @@ namespace KURSACH
         public System.Windows.Forms.TextBox textBox4;
         public System.Windows.Forms.TextBox textBox1;
         public System.Windows.Forms.TextBox IDtextBox;
-        private System.Windows.Forms.TextBox date1TextBox;
-        private System.Windows.Forms.TextBox date2TextBox;
+        public System.Windows.Forms.TextBox date1TextBox;
+        public System.Windows.Forms.TextBox date2TextBox;
     }
 }

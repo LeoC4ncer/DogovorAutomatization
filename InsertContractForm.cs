@@ -1,26 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
-using System.Data.SqlServerCe;
 
 namespace KURSACH
 {
     public partial class InsertContractForm : Form
     {
-        private SqlCeCommand cmd;
-        private static string c = (@"Data Source=..\Debug\ContractsDataBase.sdf");
-        private SqlCeConnection con = new SqlCeConnection(c);
+        OperationWithContracts owc = new OperationWithContracts();
 
         public InsertContractForm()
         {
+            OperationWithContracts.icf = this;
             InitializeComponent();
+        }
+
+        private void InsertContractForm_Load(object sender, EventArgs e)
+        {
+            date1TextBox.Text = DateTime.Today.ToString("MM.dd.yyyy");
+            date2TextBox.Text = DateTime.Today.ToString("MM.dd.yyyy");
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -32,16 +28,17 @@ namespace KURSACH
             {
                 MessageBox.Show("Заполните все поля!");
             }
+            else if (dateTimePicker5.Value > dateTimePicker6.Value)
+            {
+                MessageBox.Show("Дата начала действия договора не может быть позже даты конца действия договора!");
+            }
+            else if (Convert.ToInt32(textBox8.Text) == 0)
+            {
+                MessageBox.Show("Сумма не может быть равна нулю!");
+            }
             else
             {
-                con.Open();
-                SqlCeCommand cmd = new SqlCeCommand("INSERT INTO Contracts (Номер, Состояние, Вид, Контрагент, Начало, Окончание, Предмет, Сумма)" +
-                " VALUES('" + textBox1.Text + "','" + comboBox2.Text + "','" + comboBox3.Text + "','" + textBox4.Text + "'," +
-                "'" + date1TextBox.Text + "','" + date2TextBox.Text + "','" + textBox7.Text + "','" + textBox8.Text + "')", con);
-                cmd.ExecuteNonQuery();
-                con.Close();
-                this.Close();
-                MessageBox.Show("Договор успешно добавлен!");
+                owc.InsertContract();
             }
         }
 
@@ -49,7 +46,7 @@ namespace KURSACH
         {
             char ch = e.KeyChar;
 
-            if(!Char.IsDigit(ch) && ch != 8 && ch != 232 && ch != '.' && ch != ',')
+            if (!Char.IsDigit(ch) && ch != 8 && ch != 232 && ch != '.')
             {
                 e.Handled = true;
             }

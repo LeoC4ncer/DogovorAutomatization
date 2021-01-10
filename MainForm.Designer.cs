@@ -30,6 +30,9 @@ namespace KURSACH
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
+            this.date3TextBox = new System.Windows.Forms.TextBox();
+            this.date2TextBox = new System.Windows.Forms.TextBox();
+            this.date1TextBox = new System.Windows.Forms.TextBox();
             this.DatePeriodFilter = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.DateFilter = new System.Windows.Forms.Button();
@@ -56,6 +59,9 @@ namespace KURSACH
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Tan;
+            this.panel2.Controls.Add(this.date3TextBox);
+            this.panel2.Controls.Add(this.date2TextBox);
+            this.panel2.Controls.Add(this.date1TextBox);
             this.panel2.Controls.Add(this.DatePeriodFilter);
             this.panel2.Controls.Add(this.dateTimePicker1);
             this.panel2.Controls.Add(this.DateFilter);
@@ -66,6 +72,30 @@ namespace KURSACH
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1178, 45);
             this.panel2.TabIndex = 2;
+            // 
+            // date3TextBox
+            // 
+            this.date3TextBox.Location = new System.Drawing.Point(668, 12);
+            this.date3TextBox.Name = "date3TextBox";
+            this.date3TextBox.Size = new System.Drawing.Size(85, 20);
+            this.date3TextBox.TabIndex = 14;
+            this.date3TextBox.Visible = false;
+            // 
+            // date2TextBox
+            // 
+            this.date2TextBox.Location = new System.Drawing.Point(577, 12);
+            this.date2TextBox.Name = "date2TextBox";
+            this.date2TextBox.Size = new System.Drawing.Size(85, 20);
+            this.date2TextBox.TabIndex = 13;
+            this.date2TextBox.Visible = false;
+            // 
+            // date1TextBox
+            // 
+            this.date1TextBox.Location = new System.Drawing.Point(216, 12);
+            this.date1TextBox.Name = "date1TextBox";
+            this.date1TextBox.Size = new System.Drawing.Size(85, 20);
+            this.date1TextBox.TabIndex = 12;
+            this.date1TextBox.Visible = false;
             // 
             // DatePeriodFilter
             // 
@@ -87,6 +117,8 @@ namespace KURSACH
             this.dateTimePicker1.Size = new System.Drawing.Size(91, 20);
             this.dateTimePicker1.TabIndex = 7;
             this.dateTimePicker1.TabStop = false;
+            this.dateTimePicker1.Value = new System.DateTime(2021, 1, 9, 0, 0, 0, 0);
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // DateFilter
             // 
@@ -107,6 +139,7 @@ namespace KURSACH
             this.dateTimePicker3.Size = new System.Drawing.Size(91, 20);
             this.dateTimePicker3.TabIndex = 9;
             this.dateTimePicker3.TabStop = false;
+            this.dateTimePicker3.ValueChanged += new System.EventHandler(this.dateTimePicker3_ValueChanged);
             // 
             // dateTimePicker2
             // 
@@ -116,6 +149,7 @@ namespace KURSACH
             this.dateTimePicker2.Size = new System.Drawing.Size(91, 20);
             this.dateTimePicker2.TabIndex = 10;
             this.dateTimePicker2.TabStop = false;
+            this.dateTimePicker2.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
             // 
             // panel3
             // 
@@ -217,8 +251,11 @@ namespace KURSACH
             // 
             this.IdTextBoxMain.Location = new System.Drawing.Point(9, 14);
             this.IdTextBoxMain.Name = "IdTextBoxMain";
+            this.IdTextBoxMain.ReadOnly = true;
             this.IdTextBoxMain.Size = new System.Drawing.Size(100, 20);
             this.IdTextBoxMain.TabIndex = 6;
+            this.IdTextBoxMain.TabStop = false;
+            this.IdTextBoxMain.Text = "1";
             this.IdTextBoxMain.Visible = false;
             // 
             // dataGridView1
@@ -239,6 +276,7 @@ namespace KURSACH
             this.dataGridView1.StandardTab = true;
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.TabStop = false;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // MainForm
             // 
@@ -256,6 +294,7 @@ namespace KURSACH
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
@@ -275,15 +314,18 @@ namespace KURSACH
         private System.Windows.Forms.Button InsertContractButton;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Button ReloadTableButton;
-        public System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button DeleteContractButton;
-        private System.Windows.Forms.TextBox IdTextBoxMain;
         private System.Windows.Forms.Label labelSearch;
         private System.Windows.Forms.Button UpdateInfoButton;
         public System.Windows.Forms.DateTimePicker dateTimePicker1;
         public System.Windows.Forms.DateTimePicker dateTimePicker3;
         public System.Windows.Forms.DateTimePicker dateTimePicker2;
         public System.Windows.Forms.TextBox textBoxSearch;
+        public System.Windows.Forms.DataGridView dataGridView1;
+        public System.Windows.Forms.TextBox IdTextBoxMain;
+        public System.Windows.Forms.TextBox date3TextBox;
+        public System.Windows.Forms.TextBox date2TextBox;
+        public System.Windows.Forms.TextBox date1TextBox;
     }
 }
 
